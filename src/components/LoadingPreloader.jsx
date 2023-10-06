@@ -33,34 +33,42 @@ const Div = styled.div`
 `;
 
 const LoadingPreloader = () => {
-  useEffect(() => {
-    gsap.fromTo(
-      ".loading-page",
-      { opacity: 1 },
-      {
-        opacity: 0,
-        display: "none",
-        duration: 1.5,
-        delay: 3.5,
-      }
-    );
+    useEffect(() => {
+        // Disable scrolling during preloading
+        document.body.style.overflow = 'hidden';
 
-    gsap.fromTo(
-      ".logo-name",
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 2,
-        delay: 0.5,
-      }
-    );
-  }, []);
+        gsap.fromTo(
+            ".loading-page",
+            { opacity: 1 },
+            {
+                opacity: 0,
+                display: "none",
+                duration: 1.5,
+                delay: 3.5,
+            }
+        );
 
-  return (
+        gsap.fromTo(
+            ".logo-name",
+            {
+                y: 50,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 2,
+                delay: 0.5,
+            }
+        );
+        // Enable scrolling when preloading is complete
+        setTimeout(() => {
+            document.body.style.overflow = 'auto';
+        }, 3500); // Adjust the delay as needed
+    }, []);
+
+
+    return (
     <div>
       <Div className="z-40 -scroll-m-0 loading-page absolute top-0 left-0 w-full h-full flex flex-col gap-1 bg-gradient-to-r from-sky-800 to-indigo-800 items-center justify-center content-center">
         <svg
