@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
+
 const Div = styled.div`
   height: 100%;
   .svg {
@@ -61,7 +62,7 @@ const LoadingPreloader = () => {
 
   return (
     <div>
-      <Div className="scroll-m-0 loading-page absolute top-0 left-0 w-full h-full flex flex-col gap-1 bg-gradient-to-r from-sky-800 to-indigo-800 items-center justify-center content-center">
+      <Div className="z-40 -scroll-m-0 loading-page absolute top-0 left-0 w-full h-full flex flex-col gap-1 bg-gradient-to-r from-sky-800 to-indigo-800 items-center justify-center content-center">
         <svg
           className="svg flex stroke-white"
           xmlns="http://www.w3.org/2000/svg"
