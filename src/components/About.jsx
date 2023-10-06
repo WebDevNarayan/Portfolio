@@ -1,7 +1,7 @@
 const AboutMe = () => {
     return (
         <>
-            <div id="about" className="">
+            <div id="about" className="lg:pt-[100px]">
                 <div className="">
                     <h1 className=""><span className="">01.</span> About Me
                     </h1></div>

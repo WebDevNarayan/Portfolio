@@ -8,11 +8,11 @@ import Work from "./components/Work.jsx";
 
 function App() {
   return (
-    <div className="bg-slate-800 text-white font-sans">
+    <div className="bg-slate-800 text-white font-sans overflow-hidden">
       <div className="hero">
         <Navbar />
       </div>
-      <div className="container sm:mt-4 md:mt-5 lg:mt-10 px-10">
+      <div className="container sm:mt-4 md:mt-5 lg:mt-[100px] px-10">
         <Main />
       </div>
         <div className="px-10 h-[100dvh]">

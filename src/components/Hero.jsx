@@ -81,7 +81,7 @@ const Square = styled.div`
 
 const Content = styled.div`
   margin: 10px;
-  z-index: 99999999;
+  z-index: 20;
   position: relative;
   color: #fff;
   text-align: center;
@@ -118,7 +118,7 @@ const Hero = () => {
       <span></span>
       <span></span>
       <Content>
-        <img className="rounded-full" src="/images/img.png" alt="thumbnail" />
+        <img className="rounded-full z-30" src="/images/img.png" alt="thumbnail" />
       </Content>
     </Square>
   );

@@ -115,7 +115,7 @@ const GlowButton = () => {
       onMouseMove={handlePointerMove}
     >
       <div className="gradient"></div>
-      <a href="#">
+      <a href="#contact">
         <span className="hover:text-orange-600">Contact</span>
       </a>
     </StyledButton>
