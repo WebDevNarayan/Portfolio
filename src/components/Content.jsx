@@ -42,7 +42,7 @@ const Content = () => {
           <br />
         </h1>
         <p className="font-mont w-[35vw]">
-          Hello World! I am a UI/UX designer and Front-end Web developer based in Nepal.
+          Hello World! I am a recently graduated student and Front-end Web developer based in Nepal.
         </p>
       </div>
       <pre className="tag mt-1">&lt;/&gt;</pre>

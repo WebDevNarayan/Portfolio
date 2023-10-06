@@ -6,7 +6,7 @@ import Social from "./Social";
 const Main = () => {
   return (
     <>
-      <div id="main" className="flex justify-between px-10 ">
+      <div id="main" className="flex justify-between h-[100vh] ">
         <div className="">
           <Content />
         </div>

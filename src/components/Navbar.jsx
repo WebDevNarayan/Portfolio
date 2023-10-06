@@ -8,9 +8,8 @@ const Div = styled.div`
   height: 100px;
 
   .logo_style {
-    color: ff6200;
+    color: #ff6200;
   }
-
   .menu {
     font-size: 1rem;
   }
@@ -54,19 +53,22 @@ const Navbar = () => {
             <div className="flex justify-between gap-5 mr-10`">
               <div className="menu">
                 <ul>
-                  <a href="#main">Main</a>
+                  <a href="#about"><span className="text-[#ff6200] text-[14px]">01.</span> About</a>
                 </ul>
               </div>
               <div className="menu">
-                <a href="portfolio">Portfolio</a>
+                <a href="#experience"><span className="text-[#ff6200] text-[14px]">02.</span> Experience</a>
               </div>
 
               <div className="menu">
-                <a href="#services">My Services and Workflow</a>
+                <a href="#work"><span className="text-[#ff6200] text-[14px]">03.</span> Work</a>
               </div>
               <div className="menu">
-                <a href="#contacts">Contact</a>
+                <a href="#contact"><span className="text-[#ff6200] text-[14px]">04.</span> Contact</a>
               </div>
+              <button className="btn">
+                <a target="_blank" href="https://drive.google.com/drive/folders/1EBQFUQLBeX650h4FJB8r474YSXnMnVHh">Resume</a>
+              </button>
             </div>
           </div>
         </div>
@@ -92,23 +94,23 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col gap-3 font-semibold">
               <div className="menu">
-                <a href="#">Home</a>
+                <a href="#about">01. About</a>
               </div>
               <div className="menu">
-                <a href="#">Featured Work</a>
+                <a href="#experience">02. Experience</a>
               </div>
 
               <div className="menu">
-                <a href="#">Blog</a>
+                <a href="#work">03. Work</a>
               </div>
 
               <div className="menu">
-                <a href="#">About</a>
+                <a href="#contact">04. Contact</a>
               </div>
-              <div className="menu">
-                <a href="#">Contact</a>
-              </div>
-            </div>{" "}
+              <btn className="btn">
+                <a target="_blank" href="https://drive.google.com/drive/folders/1EBQFUQLBeX650h4FJB8r474YSXnMnVHh">Resume</a>
+              </btn>
+            </div>
           </div>
         </div>
       )}

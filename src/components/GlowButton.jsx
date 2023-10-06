@@ -33,7 +33,6 @@ const StyledButton = styled.button`
     inset: 0;
     border-radius: inherit;
     overflow: hidden;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
     transform: scaleY(1.02) scaleX(1.005) rotate(-0.35deg);
     &:before {
       content: "";
@@ -62,7 +61,6 @@ const StyledButton = styled.button`
     border-radius: inherit;
     background-color: var(--button-background);
     overflow: hidden;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
 
     &:before {
       content: "";
@@ -117,7 +115,7 @@ const GlowButton = () => {
       onMouseMove={handlePointerMove}
     >
       <div className="gradient"></div>
-      <a href="#contact">
+      <a href="#">
         <span className="hover:text-orange-600">Contact</span>
       </a>
     </StyledButton>

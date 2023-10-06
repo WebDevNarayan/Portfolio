@@ -118,7 +118,7 @@ const Hero = () => {
       <span></span>
       <span></span>
       <Content>
-        <img className="z-0 rounded-full" src="/images/img.png" alt="thumbnail" />
+        <img className="rounded-full" src="/images/img.png" alt="thumbnail" />
       </Content>
     </Square>
   );

@@ -1,8 +1,10 @@
 import Navbar from "./components/Navbar";
 import LoadingPreloader from "./components/LoadingPreloader";
 import Main from "./components/Main";
-import Portfolio from "./components/Portfolio";
-import SliderComponent from "./components/Slider";
+import AboutMe from "./components/About.jsx";
+import Experience from "./components/Experience.jsx";
+import Contact from "./components/Contact.jsx";
+import Work from "./components/Work.jsx";
 
 function App() {
   return (
@@ -10,13 +12,21 @@ function App() {
       <div className="hero">
         <Navbar />
       </div>
-      <div className="container mt-10">
+      <div className="container sm:mt-4 md:mt-5 lg:mt-10 px-10">
         <Main />
       </div>
-      <div className="container mt-5 px-10">
-        <Portfolio />
-        <SliderComponent />
-      </div>
+        <div className="px-10 h-[100dvh]">
+            <AboutMe />
+        </div>
+        <div className="px-10 h-[100dvh]">
+            <Experience />
+        </div>
+        <div className="px-10 h-[100dvh]">
+            <Work />
+        </div>
+        <div className="px-10 h-[100dvh]">
+            <Contact />
+        </div>
       <LoadingPreloader />
     </div>
   );
