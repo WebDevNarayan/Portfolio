@@ -6,7 +6,10 @@ import Social from "./Social";
 const Main = () => {
   return (
     <>
-      <div id="main" className="flex lg:pt-10 justify-between h-[100vh] ">
+      <div
+        id="main"
+        className="lg:flex lg:pt-10 lg:justify-between lg:h-[100vh] "
+      >
         <div className="">
           <Content />
         </div>

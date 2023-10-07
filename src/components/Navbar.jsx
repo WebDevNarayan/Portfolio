@@ -53,21 +53,37 @@ const Navbar = () => {
             <div className="flex justify-between gap-5 mr-10`">
               <div className="menu">
                 <ul>
-                  <a href="#about"><span className="text-[#ff6200] text-[14px]">01.</span> About</a>
+                  <a href="#about">
+                    <span className="text-[#ff6200] text-[14px]">01.</span>{" "}
+                    About
+                  </a>
                 </ul>
               </div>
               <div className="menu">
-                <a href="#experience"><span className="text-[#ff6200] text-[14px]">02.</span> Experience</a>
+                <a href="#experience">
+                  <span className="text-[#ff6200] text-[14px]">02.</span>{" "}
+                  Experience
+                </a>
               </div>
 
               <div className="menu">
-                <a href="#work"><span className="text-[#ff6200] text-[14px]">03.</span> Work</a>
+                <a href="#work">
+                  <span className="text-[#ff6200] text-[14px]">03.</span> Work
+                </a>
               </div>
               <div className="menu">
-                <a href="#contact"><span className="text-[#ff6200] text-[14px]">04.</span> Contact</a>
+                <a href="#contact">
+                  <span className="text-[#ff6200] text-[14px]">04.</span>{" "}
+                  Contact
+                </a>
               </div>
               <button className="btn">
-                <a target="_blank" href="https://drive.google.com/drive/folders/1EBQFUQLBeX650h4FJB8r474YSXnMnVHh">Resume</a>
+                <a
+                  target="_blank"
+                  href="https://drive.google.com/drive/folders/1EBQFUQLBeX650h4FJB8r474YSXnMnVHh"
+                >
+                  Resume
+                </a>
               </button>
             </div>
           </div>
@@ -75,7 +91,7 @@ const Navbar = () => {
       </div>
       {showMenu && (
         <div className="fixed inset-0 z-50 flex">
-          <div className="w-64 bg-gray-400 px-4 py-8">
+          <div className="w-64 bg-gray-400 px-4 py-8 text-3xl font-mont_alter font-semibold">
             <div className="flex justify-between mb-6">
               <div className="text-3xl font-semibold">
                 <a href="#">
@@ -94,22 +110,36 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col gap-3 font-semibold">
               <div className="menu">
-                <a href="#about">01. About</a>
+                <a href="#about">
+                  <span className="text-[#ff6200] text-[14px]">01.</span> About
+                </a>{" "}
               </div>
               <div className="menu">
-                <a href="#experience">02. Experience</a>
+                <a href="#experience">
+                  <span className="text-[#ff6200] text-[14px]">02.</span>{" "}
+                  Experience
+                </a>{" "}
               </div>
 
               <div className="menu">
-                <a href="#work">03. Work</a>
+                <a href="#work">
+                  <span className="text-[#ff6200] text-[14px]">03.</span> Work
+                </a>
               </div>
-
               <div className="menu">
-                <a href="#contact">04. Contact</a>
+                <a href="#contact">
+                  <span className="text-[#ff6200] text-[14px]">04.</span>{" "}
+                  Contact
+                </a>
               </div>
-              <btn className="btn">
-                <a target="_blank" href="https://drive.google.com/drive/folders/1EBQFUQLBeX650h4FJB8r474YSXnMnVHh">Resume</a>
-              </btn>
+              <button className="btn ">
+                <a
+                  target="_blank"
+                  href="https://drive.google.com/drive/folders/1EBQFUQLBeX650h4FJB8r474YSXnMnVHh"
+                >
+                  Resume
+                </a>
+              </button>
             </div>
           </div>
         </div>
