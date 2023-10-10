@@ -8,7 +8,7 @@ const Main = () => {
     <>
       <div
         id="main"
-        className="lg:flex lg:pt-10 lg:justify-between lg:h-[100vh] "
+        className="lg:flex lg:items-center lg:justify-between lg:h-[80vh] "
       >
         <div className="">
           <Content />

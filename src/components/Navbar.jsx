@@ -77,6 +77,7 @@ const Navbar = () => {
                   Contact
                 </a>
               </div>
+
               <button className="btn">
                 <a
                   target="_blank"

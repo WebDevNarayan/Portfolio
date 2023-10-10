@@ -12,21 +12,21 @@ function App() {
       <div className="hero">
         <Navbar />
       </div>
-      <div className="container sm:mt-4 md:mt-5 lg:mt-[100px] px-10">
+      <div className="sm:mt-4 md:mt-5 lg:mt-[100px] lg:px-20 px-10">
         <Main />
       </div>
-        <div className="px-10 h-[100dvh]">
-            <AboutMe />
-        </div>
-        <div className="px-10 h-[100dvh]">
-            <Experience />
-        </div>
-        <div className="px-10 h-[100dvh]">
-            <Work />
-        </div>
-        <div className="px-10 h-[100dvh]">
-            <Contact />
-        </div>
+      <div className="lg:px-20 px-10 h-[100dvh]">
+        <AboutMe />
+      </div>
+      <div className="lg:px-20 px-10 h-[100dvh]">
+        <Experience />
+      </div>
+      <div className="lg:px-20 px-10 h-[100dvh]">
+        <Work />
+      </div>
+      <div className="lg:px-20 px-10 h-[100dvh]">
+        <Contact />
+      </div>
       <LoadingPreloader />
     </div>
   );
