@@ -21,7 +21,7 @@ function App() {
       <div className="lg:px-20 px-10 h-[100dvh]">
         <Experience />
       </div>
-      <div className="lg:px-20 px-10 h-[100dvh]">
+      <div className="lg:px-20 px-10 h-[100%]">
         <Work />
       </div>
       <div className="lg:px-20 px-10 h-[100dvh]">
