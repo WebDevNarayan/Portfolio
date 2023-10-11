@@ -1,11 +1,11 @@
 import Navbar from "./components/Navbar";
 import LoadingPreloader from "./components/LoadingPreloader";
-import Main from "./components/Main";
 import AboutMe from "./components/About.jsx";
 import Experience from "./components/Experience.jsx";
 import Contact from "./components/Contact.jsx";
 import Work from "./components/Work.jsx";
 import Footer from "./components/Footer";
+import MainSection from "./components/Main";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Navbar />
       </div>
       <div className="sm:mt-4 md:mt-5 lg:mt-[100px] lg:px-20 px-10">
-        <Main />
+        <MainSection />
       </div>
       <div className="lg:px-20 px-10 h-[100dvh]">
         <AboutMe />

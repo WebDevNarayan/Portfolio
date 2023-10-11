@@ -3,7 +3,7 @@ import Content from "./Content";
 import Hero from "./Hero";
 import Social from "./Social";
 
-const Main = () => {
+const MainSection = () => {
   return (
     <>
       <div
@@ -24,4 +24,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainSection;
