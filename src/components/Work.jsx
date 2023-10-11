@@ -9,14 +9,18 @@ const Work = () => {
         </div>
         <div className="lg:flex items-center lg:gap-4 mb-6">
           <div className="lg:h-[50vh] lg:w-[60vw] ">
-            <img
-              className="lg:h-[100%] lg:w-[100%] object-cover"
-              src="./images/QR-menu.png"
-              alt="QR-menu thumbnail"
-            />
+            <a target="_blank" href="https://revel.qrmenu.revelerp.com/13">
+              <img
+                className="lg:h-[100%] lg:w-[100%] object-cover rounded-md"
+                src="./images/QR-menu.png"
+                alt="QR-menu thumbnail"
+              />
+            </a>
           </div>
           <div className="lg:flex flex-col items-center lg:gap-2">
-            <h2>QR-Menu - A digital menu</h2>
+            <h2>
+              <span className="text-[#ff6200]"> QR-Menu</span> - A digital menu
+            </h2>
             <p className="text-justify">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque
               voluptas velit sed. Provident minima corrupti, ex illum doloribus
@@ -27,14 +31,19 @@ const Work = () => {
         </div>
         <div className="lg:flex items-center lg:gap-4 mb-6">
           <div className="lg:h-[50vh] lg:w-[60vw] ">
-            <img
-              className="lg:h-[100%] lg:w-[100%] object-cover"
-              src="./images/dukaan.png"
-              alt="Duk@an thumbnail"
-            />
+            <a target="_blank" href="https://github.com/WebDevNarayan/dukaan">
+              <img
+                className="lg:h-[100%] lg:w-[100%] object-cover rounded-md"
+                src="./images/dukaan.png"
+                alt="Duk@an thumbnail"
+              />
+            </a>
           </div>
           <div className="lg:flex flex-col items-center lg:gap-2">
-            <h2>Duk@an - An e-commerce web app</h2>
+            <h2>
+              <span className="text-[#ff6200]">Duk@an</span> - An e-commerce web
+              app
+            </h2>
             <p className="text-justify">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque
               voluptas velit sed. Provident minima corrupti, ex illum doloribus
@@ -45,14 +54,20 @@ const Work = () => {
         </div>
         <div className="lg:flex items-center lg:gap-4 mb-6">
           <div className="lg:h-[50vh] lg:w-[60vw] ">
-            <img
-              className="lg:h-[100%] lg:w-[100%] object-cover"
-              src="./images/NepTechPal.png"
-              alt="Nep Tech Pal thumbnail"
-            />
+            <a href="https://www.neptechpal.com.np/" target="_blank">
+              {" "}
+              <img
+                className="lg:h-[100%] lg:w-[100%] object-cover rounded-md"
+                src="./images/NepTechPal.png"
+                alt="Nep Tech Pal thumbnail"
+              />
+            </a>
           </div>
           <div className="lg:flex flex-col items-center lg:gap-2">
-            <h2>Nep Tech Pal - A website for Tech company</h2>
+            <h2>
+              <span className="text-[#ff6200]"> Nep Tech Pal</span> - A website
+              for Tech company
+            </h2>
             <p className="text-justify">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque
               voluptas velit sed. Provident minima corrupti, ex illum doloribus

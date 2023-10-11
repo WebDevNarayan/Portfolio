@@ -81,7 +81,7 @@ const Navbar = () => {
               <button className="btn">
                 <a
                   target="_blank"
-                  href="https://drive.google.com/drive/folders/1NgCW2Cpmu8RcnvV9qIg25zepPsP4ANyD"
+                  href="https://drive.google.com/file/d/1hljF2QvTSxobCgt9ekmFdrjRuKYil1p_/view?usp=sharing"
                 >
                   Resume
                 </a>
@@ -136,7 +136,7 @@ const Navbar = () => {
               <button className="btn ">
                 <a
                   target="_blank"
-                  href="https://drive.google.com/drive/folders/1NgCW2Cpmu8RcnvV9qIg25zepPsP4ANyD"
+                  href="https://drive.google.com/file/d/1hljF2QvTSxobCgt9ekmFdrjRuKYil1p_/view?usp=sharing"
                 >
                   Resume
                 </a>
