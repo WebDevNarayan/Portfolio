@@ -28,8 +28,8 @@ const Navbar = () => {
   };
 
   return (
-    <Div className="font-mont px-10 py-1 flex justify-between w-full bg-slate-800 fixed z-30">
-      <div className=" container ">
+    <Div className="font-mont lg:px-30 px-10 flex justify-between w-full bg-slate-800 fixed z-30">
+      <div className="w-full lg:mx-10 mx-0 ">
         <div className="flex items-center py-4 md:justify-start md:space-x-2">
           <div className="-my-2 -mr-2 lg:hidden md:hidden">
             <button

@@ -24,8 +24,6 @@ const Square = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 300px;
 
   span:nth-child(1) {
     position: absolute;
@@ -113,12 +111,16 @@ const Content = styled.div`
 
 const Hero = () => {
   return (
-    <Square>
+    <Square className="lg:h-[400px] lg:w-[400px] h-[300px] w-[300px]">
       <span></span>
       <span></span>
       <span></span>
       <Content>
-        <img className="rounded-full z-30" src="/images/img.png" alt="thumbnail" />
+        <img
+          className="rounded-full z-30"
+          src="/images/thumbnail.jpg"
+          alt="thumbnail"
+        />
       </Content>
     </Square>
   );
