@@ -8,12 +8,12 @@ const MainSection = () => {
     <>
       <div
         id="main"
-        className="lg:flex lg:items-center lg:justify-between lg:h-[80vh] "
+        className="lg:flex lg:items-center lg:justify-between lg:h-[60vh] "
       >
         <div className="">
           <Content />
         </div>
-        <div className="">
+        <div className="lg:mr-40">
           <Hero />
         </div>
         <div className="">

@@ -41,7 +41,7 @@ const Content = () => {
           </div>
           <br />
         </h1>
-        <p className="font-mont w-[60vw] lg:w-[35vw] text-[#ffffffbd]">
+        <p className="font-mont w-[60vw] lg:w-[25vw] text-[#ffffffbd]">
           Hello World! I am a recently graduated student and Front-end Web
           developer based in Pokhara, Nepal.
         </p>
