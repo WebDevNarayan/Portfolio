@@ -92,17 +92,72 @@ function TorusKnot() {
   )
 }
 
-/* ─── Thin orbital ring ─────────────────────────────────── */
-function OrbitalRing({ radius, tilt, speed, color, opacity }) {
-  const mesh = useRef()
-  useFrame(({ clock }) => {
-    if (mesh.current) mesh.current.rotation.z = clock.elapsedTime * speed
+/* ─── Comet: glowing head + fading tail along a circular orbit ── */
+function OrbitalComet({ radius, tilt, speed, color, trailLength = 70, startAngle = 0 }) {
+  const pointsRef  = useRef()
+  const headRef    = useRef()
+  const angle      = useRef(startAngle)
+
+  const positions = useMemo(() => new Float32Array(trailLength * 3), [trailLength])
+  const colors    = useMemo(() => new Float32Array(trailLength * 3), [trailLength])
+  const baseColor = useMemo(() => new THREE.Color(color), [color])
+
+  useFrame((_, delta) => {
+    angle.current += speed * delta
+    const θ = angle.current
+
+    const geo = pointsRef.current?.geometry
+    if (geo) {
+      const pos = geo.attributes.position
+      const col = geo.attributes.color
+      for (let i = 0; i < trailLength; i++) {
+        const t = i / trailLength          // 0 = head, 1 = tail end
+        const a = θ - t * 1.6              // tail spans ~1.6 rad behind head
+        pos.setXYZ(i, radius * Math.cos(a), 0, radius * Math.sin(a))
+        const fade = Math.pow(1 - t, 1.4)  // quadratic-ish fade
+        col.setXYZ(i, baseColor.r * fade, baseColor.g * fade, baseColor.b * fade)
+      }
+      pos.needsUpdate = true
+      col.needsUpdate = true
+    }
+
+    if (headRef.current) {
+      headRef.current.position.set(radius * Math.cos(θ), 0, radius * Math.sin(θ))
+    }
   })
+
   return (
-    <mesh ref={mesh} position={[1.8, 0, 0]} rotation={[tilt, 0, 0]}>
-      <torusGeometry args={[radius, 0.007, 16, 128]} />
-      <meshBasicMaterial color={color} transparent opacity={opacity} />
-    </mesh>
+    <group position={[1.8, 0, 0]} rotation={[tilt, 0, 0]}>
+      {/* Tail */}
+      <points ref={pointsRef}>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" count={trailLength} array={positions} itemSize={3} />
+          <bufferAttribute attach="attributes-color"    count={trailLength} array={colors}    itemSize={3} />
+        </bufferGeometry>
+        <pointsMaterial
+          size={0.062}
+          vertexColors
+          sizeAttenuation
+          transparent
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+        />
+      </points>
+
+      {/* Head */}
+      <group ref={headRef}>
+        {/* Soft glow halo */}
+        <mesh>
+          <sphereGeometry args={[0.07, 8, 8]} />
+          <meshBasicMaterial color={color} transparent opacity={0.22} depthWrite={false} blending={THREE.AdditiveBlending} />
+        </mesh>
+        {/* Bright core */}
+        <mesh>
+          <sphereGeometry args={[0.016, 8, 8]} />
+          <meshBasicMaterial color="#ffffff" />
+        </mesh>
+      </group>
+    </group>
   )
 }
 
@@ -168,10 +223,10 @@ function AccentSphere() {
       : new THREE.Color('#3b82f6')
     mat.current.color.lerp(targetColor, 0.06)
 
-    const targetOpacity = hovered.current ? 0.7 : 0.2
+    const targetOpacity = hovered.current ? 0.9 : 0.55
     mat.current.opacity = THREE.MathUtils.lerp(mat.current.opacity, targetOpacity, 0.06)
 
-    const targetEmissiveIntensity = hovered.current ? 0.5 : 0
+    const targetEmissiveIntensity = hovered.current ? 0.9 : 0.35
     mat.current.emissiveIntensity = THREE.MathUtils.lerp(
       mat.current.emissiveIntensity,
       targetEmissiveIntensity,
@@ -199,11 +254,11 @@ function AccentSphere() {
         color="#3b82f6"
         roughness={0.4}
         metalness={0.6}
-        emissive="#ff6200"
-        emissiveIntensity={0}
+        emissive="#3b82f6"
+        emissiveIntensity={0.35}
         wireframe
         transparent
-        opacity={0.2}
+        opacity={0.55}
       />
     </mesh>
   )
@@ -234,9 +289,9 @@ const HeroScene = () => (
       <Environment preset="city" />
       <TorusKnot />
       <AccentSphere />
-      <OrbitalRing radius={2.3} tilt={Math.PI / 4}    speed={ 0.13} color="#ff6200" opacity={0.28} />
-      <OrbitalRing radius={3.1} tilt={-Math.PI / 5}   speed={-0.09} color="#3b82f6" opacity={0.20} />
-      <OrbitalRing radius={1.9} tilt={ Math.PI / 2.3} speed={ 0.20} color="#ff6200" opacity={0.13} />
+      <OrbitalComet radius={2.3} tilt={ Math.PI / 4}   speed={ 0.55} color="#ff6200" startAngle={0} />
+      <OrbitalComet radius={3.1} tilt={-Math.PI / 5}  speed={ 0.38} color="#3b82f6" startAngle={2.1} trailLength={90} />
+      <OrbitalComet radius={1.9} tilt={ Math.PI / 2.3} speed={ 0.82} color="#ff8c40" startAngle={4.2} trailLength={50} />
       <Particles />
     </Suspense>
   </Canvas>
