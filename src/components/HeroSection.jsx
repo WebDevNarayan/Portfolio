@@ -46,8 +46,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#080808]/30 via-transparent to-transparent pointer-events-none" />
 
       {/* Main content */}
-      <div className="relative z-[2] h-full flex items-center">
-        <div className="lg:pl-20 pl-8 pr-4 max-w-[580px] w-full">
+      <div className="relative z-[2] h-full flex items-center pointer-events-none">
+        <div className="lg:pl-20 pl-8 pr-4 max-w-[580px] w-full pointer-events-auto">
 
           {/* Available badge */}
           <motion.div

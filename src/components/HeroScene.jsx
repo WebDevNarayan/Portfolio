@@ -1,30 +1,78 @@
-import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef, useMemo, Suspense } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { useRef, useMemo, Suspense, useEffect } from 'react'
 import * as THREE from 'three'
-import { Environment, Float } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 
-/* ─── Glowing torus knot — reacts to mouse ─────────────── */
+/* ─── Glowing torus knot — drag to spin + inertia ──────── */
 function TorusKnot() {
-  const mesh = useRef()
+  const groupRef = useRef()
+  const { gl } = useThree()
 
-  useFrame(({ pointer, clock }) => {
-    if (!mesh.current) return
-    const t = clock.elapsedTime
-    mesh.current.rotation.x = THREE.MathUtils.lerp(
-      mesh.current.rotation.x,
-      -pointer.y * 0.38 + t * 0.06,
-      0.025
-    )
-    mesh.current.rotation.y = THREE.MathUtils.lerp(
-      mesh.current.rotation.y,
-      pointer.x * 0.38 + t * 0.10,
-      0.025
-    )
+  const isDragging = useRef(false)
+  const lastPointer = useRef({ x: 0, y: 0 })
+  const velocity = useRef({ x: 0, y: 0 })
+  const rotation = useRef({ x: 0.3, y: 0.5 })
+
+  useEffect(() => {
+    const canvas = gl.domElement
+
+    const onMove = (e) => {
+      if (!isDragging.current) return
+      const dx = e.clientX - lastPointer.current.x
+      const dy = e.clientY - lastPointer.current.y
+      velocity.current = { x: dy * 0.007, y: dx * 0.007 }
+      rotation.current.x += dy * 0.007
+      rotation.current.y += dx * 0.007
+      lastPointer.current = { x: e.clientX, y: e.clientY }
+    }
+
+    const onUp = () => {
+      isDragging.current = false
+      canvas.style.cursor = 'default'
+    }
+
+    // Use window so fast drags don't lose tracking when pointer leaves canvas
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerup', onUp)
+    return () => {
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', onUp)
+    }
+  }, [gl])
+
+  useFrame(({ clock }) => {
+    if (!groupRef.current) return
+    // Gentle float bob
+    groupRef.current.position.y = Math.sin(clock.elapsedTime * 0.9) * 0.15
+
+    if (!isDragging.current) {
+      // Inertia decay
+      velocity.current.x *= 0.95
+      velocity.current.y *= 0.95
+      // Fallback auto-spin when fully stopped
+      if (Math.abs(velocity.current.y) < 0.002) velocity.current.y = 0.004
+    }
+
+    rotation.current.x += velocity.current.x
+    rotation.current.y += velocity.current.y
+    groupRef.current.rotation.x = rotation.current.x
+    groupRef.current.rotation.y = rotation.current.y
   })
 
   return (
-    <Float speed={1.3} floatIntensity={0.7} rotationIntensity={0.18} position={[1.8, 0, 0]}>
-      <mesh ref={mesh} castShadow>
+    <group ref={groupRef} position={[1.8, 0, 0]}>
+      <mesh
+        castShadow
+        onPointerDown={(e) => {
+          e.stopPropagation()
+          isDragging.current = true
+          lastPointer.current = { x: e.clientX, y: e.clientY }
+          velocity.current = { x: 0, y: 0 }
+          gl.domElement.style.cursor = 'grabbing'
+        }}
+        onPointerOver={() => { gl.domElement.style.cursor = 'grab' }}
+        onPointerOut={() => { if (!isDragging.current) gl.domElement.style.cursor = 'default' }}
+      >
         <torusKnotGeometry args={[1.1, 0.36, 220, 32]} />
         <meshPhysicalMaterial
           color={new THREE.Color('#ff6200')}
@@ -40,7 +88,7 @@ function TorusKnot() {
           emissiveIntensity={0.18}
         />
       </mesh>
-    </Float>
+    </group>
   )
 }
 
@@ -102,22 +150,57 @@ function Particles({ count = 1400 }) {
   )
 }
 
-/* ─── Secondary smaller knot in background ──────────────── */
+/* ─── Accent icosahedron — hover color shift ────────────── */
 function AccentSphere() {
   const mesh = useRef()
+  const mat = useRef()
+  const hovered = useRef(false)
+  const { gl } = useThree()
+
   useFrame(({ clock }) => {
-    if (mesh.current) {
-      mesh.current.rotation.y = clock.elapsedTime * 0.07
-      mesh.current.rotation.z = clock.elapsedTime * 0.04
-    }
+    if (!mesh.current || !mat.current) return
+    mesh.current.rotation.y = clock.elapsedTime * 0.07
+    mesh.current.rotation.z = clock.elapsedTime * 0.04
+
+    // Lerp color and opacity toward hover target
+    const targetColor = hovered.current
+      ? new THREE.Color('#ff6200')
+      : new THREE.Color('#3b82f6')
+    mat.current.color.lerp(targetColor, 0.06)
+
+    const targetOpacity = hovered.current ? 0.7 : 0.2
+    mat.current.opacity = THREE.MathUtils.lerp(mat.current.opacity, targetOpacity, 0.06)
+
+    const targetEmissiveIntensity = hovered.current ? 0.5 : 0
+    mat.current.emissiveIntensity = THREE.MathUtils.lerp(
+      mat.current.emissiveIntensity,
+      targetEmissiveIntensity,
+      0.06
+    )
   })
+
   return (
-    <mesh ref={mesh} position={[4.2, 2.1, -3]} scale={0.6}>
+    <mesh
+      ref={mesh}
+      position={[4.2, 2.1, -3]}
+      scale={0.6}
+      onPointerOver={() => {
+        hovered.current = true
+        gl.domElement.style.cursor = 'pointer'
+      }}
+      onPointerOut={() => {
+        hovered.current = false
+        gl.domElement.style.cursor = 'default'
+      }}
+    >
       <icosahedronGeometry args={[1, 1]} />
       <meshStandardMaterial
+        ref={mat}
         color="#3b82f6"
         roughness={0.4}
         metalness={0.6}
+        emissive="#ff6200"
+        emissiveIntensity={0}
         wireframe
         transparent
         opacity={0.2}
@@ -151,8 +234,8 @@ const HeroScene = () => (
       <Environment preset="city" />
       <TorusKnot />
       <AccentSphere />
-      <OrbitalRing radius={2.3} tilt={Math.PI / 4}   speed={ 0.13} color="#ff6200" opacity={0.28} />
-      <OrbitalRing radius={3.1} tilt={-Math.PI / 5}  speed={-0.09} color="#3b82f6" opacity={0.20} />
+      <OrbitalRing radius={2.3} tilt={Math.PI / 4}    speed={ 0.13} color="#ff6200" opacity={0.28} />
+      <OrbitalRing radius={3.1} tilt={-Math.PI / 5}   speed={-0.09} color="#3b82f6" opacity={0.20} />
       <OrbitalRing radius={1.9} tilt={ Math.PI / 2.3} speed={ 0.20} color="#ff6200" opacity={0.13} />
       <Particles />
     </Suspense>
