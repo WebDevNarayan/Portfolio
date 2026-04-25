@@ -1,8 +1,90 @@
 @import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&family=Montserrat:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #080808;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Subtle page grid ─────────────────────────────────── */
+.page-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: #ff6200; border-radius: 2px; }
+
+/* ── Glass tag (used in old HeroScene, kept for compat) ─ */
+.glass-tag {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 20px rgba(255,98,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* ── Gradient text ────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #ff6200 0%, #ff9500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section glow helper ──────────────────────────────── */
+.glow-orange { box-shadow: 0 0 60px rgba(255,98,0,0.35); }
+.glow-blue   { box-shadow: 0 0 60px rgba(59,130,246,0.25); }
+
+/* ── Magnetic button base ─────────────────────────────── */
+.btn-magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.33,1,0.68,1);
+}
+
+/* ── Noise overlay (optional depth) ──────────────────── */
+@keyframes noise {
+  0%,100% { transform: translate(0,0); }
+  10%      { transform: translate(-1%,-1%); }
+  30%      { transform: translate(1%,-2%); }
+  50%      { transform: translate(-2%,1%); }
+  70%      { transform: translate(1%,2%); }
+  90%      { transform: translate(-1%,0); }
+}
+
+/* ── Stagger-in keyframe ──────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Selection color ──────────────────────────────────── */
+::selection { background: rgba(255,98,0,0.25); color: #fff; }

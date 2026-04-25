@@ -5,10 +5,17 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mont: "Montserrat , sans-serfi",
-        mont_alter: "Montserrat Alternates, sans-serif",
-        sans: "Michroma, sans-serif",
-        play: "Playfair Display, serif",
+        mont:       ['Montserrat', 'sans-serif'],
+        mont_alter: ['Montserrat Alternates', 'sans-serif'],
+        sans:       ['Montserrat', 'sans-serif'],
+        mono:       ['JetBrains Mono', 'monospace'],
+        play:       ['Playfair Display', 'serif'],
+      },
+      transitionDuration: {
+        400: '400ms',
+      },
+      colors: {
+        brand: '#ff6200',
       },
     },
   },
