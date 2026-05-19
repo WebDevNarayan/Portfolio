@@ -1,17 +1,27 @@
-import { useRef, useState } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 /* react-icons feather set */
 const IconLink = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-    <polyline points="15 3 21 3 21 9"/>
-    <line x1="10" y1="14" x2="21" y2="3"/>
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="10" y1="14" x2="21" y2="3" />
   </svg>
-)
+);
 const IconGitHub = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.09.682-.217.682-.482
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.09.682-.217.682-.482
     0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462
     -.908-.62.069-.608.069-.608 1.003.07 1.531 1.031 1.531 1.031.892 1.53 2.341 1.088 2.91.832
     .091-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683
@@ -19,47 +29,53 @@ const IconGitHub = ({ size = 16 }) => (
     0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699
     1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852
     0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.164 22 16.418 22 12
-    c0-5.523-4.477-10-10-10z"/>
+    c0-5.523-4.477-10-10-10z"
+    />
   </svg>
-)
+);
 
 const projects = [
   {
-    num:         '01',
-    title:       'Video Doctor AI',
-    subtitle:    'AI-Powered YouTube Analyzer',
-    description: 'Find out why your video isn\'t performing. Paste any YouTube URL and get a full performance diagnosis — CTR, retention, SEO, and actionable fixes in seconds. Covers title & thumbnail scoring, hook & pacing breakdown, tags & discoverability, and specific rewrite suggestions.',
-    tech:        ['React', 'AI/LLM', 'YouTube API', 'Tailwind CSS'],
-    image:       './images/video-doctor-ai.png',
-    live:        'https://yt-assistant.vercel.app/',
-    github:      null,
+    num: "01",
+    title: "Video Doctor AI",
+    subtitle: "AI-Powered YouTube Analyzer",
+    description:
+      "Find out why your video isn't performing. Paste any YouTube URL and get a full performance diagnosis — CTR, retention, SEO, and actionable fixes in seconds. Covers title & thumbnail scoring, hook & pacing breakdown, tags & discoverability, and specific rewrite suggestions.",
+    tech: ["React", "AI/LLM", "YouTube API", "Tailwind CSS"],
+    image: "./images/video-doctor-ai.png",
+    imageScale: 1.35,
+    live: "https://yt-assistant.vercel.app/",
+    github: null,
   },
   {
-    num:         '02',
-    title:       'SME Business OS',
-    subtitle:    'All-in-One HR & Workforce Platform',
-    description: 'From attendance to payroll, leave to performance — everything your team needs to manage people operations, unified in one secure platform. A full HR/workforce management system built for small and medium businesses.',
-    tech:        ['React', 'Node.js', 'REST API', 'Tailwind CSS'],
-    image:       './images/smebos.png',
-    live:        'https://www.smebos.co/',
-    github:      null,
+    num: "02",
+    title: "SME Business OS",
+    subtitle: "All-in-One HR & Workforce Platform",
+    description:
+      "From attendance to payroll, leave to performance — everything your team needs to manage people operations, unified in one secure platform. A full HR/workforce management system built for small and medium businesses.",
+    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Express"],
+    image: "./images/smebos.png",
+    imageScale: 1.35,
+    live: "https://www.smebos.co/",
+    github: null,
   },
   {
-    num:         '03',
-    title:       'Duk@an',
-    subtitle:    'Full-Stack E-Commerce Platform',
-    description: 'A complete e-commerce web application with product catalog, cart management, and user authentication. Designed for real-world scale with a responsive, conversion-optimized interface.',
-    tech:        ['React', 'JavaScript', 'Styled Components', 'REST API'],
-    image:       './images/dukaan.png',
-    live:        null,
-    github:      'https://github.com/WebDevNarayan/dukaan',
+    num: "03",
+    title: "Duk@an",
+    subtitle: "Full-Stack E-Commerce Platform",
+    description:
+      "A complete e-commerce web application with product catalog, cart management, and user authentication. Designed for real-world scale with a responsive, conversion-optimized interface.",
+    tech: ["React", "JavaScript", "Styled Components", "REST API"],
+    image: "./images/dukaan.png",
+    live: null,
+    github: "https://github.com/WebDevNarayan/dukaan",
   },
-]
+];
 
 /* ── Individual project card ──────────────────────────── */
 const ProjectCard = ({ project, i, inView }) => {
-  const [imgHovered, setImgHovered] = useState(false)
-  const isEven = i % 2 === 0
+  const [imgHovered, setImgHovered] = useState(false);
+  const isEven = i % 2 === 0;
 
   return (
     <motion.article
@@ -70,23 +86,27 @@ const ProjectCard = ({ project, i, inView }) => {
     >
       {/* Image */}
       <div
-        className={`relative overflow-hidden rounded-2xl aspect-video group ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
+        className={`relative overflow-hidden rounded-2xl aspect-video group ${isEven ? "lg:order-1" : "lg:order-2"}`}
         onMouseEnter={() => setImgHovered(true)}
         onMouseLeave={() => setImgHovered(false)}
       >
         {/* Outer border glow on hover */}
-        <div className="absolute -inset-px rounded-2xl transition-all duration-500"
+        <div
+          className="absolute -inset-px rounded-2xl transition-all duration-500"
           style={{
             background: imgHovered
-              ? 'linear-gradient(135deg, rgba(255,98,0,0.4), rgba(59,130,246,0.2))'
-              : 'linear-gradient(135deg, rgba(255,255,255,0.06), transparent)',
+              ? "linear-gradient(135deg, rgba(255,98,0,0.4), rgba(59,130,246,0.2))"
+              : "linear-gradient(135deg, rgba(255,255,255,0.06), transparent)",
           }}
         />
 
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04] relative z-0"
+          className="w-full h-full object-cover transition-transform duration-700 relative z-0"
+          style={{
+            transform: `scale(${(project.imageScale ?? 1) + (imgHovered ? 0.04 : 0)})`,
+          }}
         />
 
         {/* Dark overlay with links */}
@@ -127,11 +147,11 @@ const ProjectCard = ({ project, i, inView }) => {
       </div>
 
       {/* Content */}
-      <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'} lg:px-4`}>
+      <div className={`${isEven ? "lg:order-2" : "lg:order-1"} lg:px-4`}>
         {/* Big faded number */}
         <div
           className="text-[7rem] lg:text-[9rem] font-bold font-mono leading-none select-none -ml-1 mb-0"
-          style={{ color: 'rgba(255,255,255,0.04)' }}
+          style={{ color: "rgba(255,255,255,0.04)" }}
         >
           {project.num}
         </div>
@@ -142,7 +162,7 @@ const ProjectCard = ({ project, i, inView }) => {
 
         <h3
           className="text-3xl lg:text-4xl font-bold mb-5 text-white leading-tight"
-          style={{ fontFamily: 'Montserrat Alternates, sans-serif' }}
+          style={{ fontFamily: "Montserrat Alternates, sans-serif" }}
         >
           {project.title}
         </h3>
@@ -153,7 +173,7 @@ const ProjectCard = ({ project, i, inView }) => {
 
         {/* Tech stack */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {project.tech.map(t => (
+          {project.tech.map((t) => (
             <span
               key={t}
               className="px-3 py-1.5 rounded-full text-[11px] font-mono text-[#ff6200]/80 border border-[#ff6200]/18 bg-[#ff6200]/5"
@@ -194,22 +214,24 @@ const ProjectCard = ({ project, i, inView }) => {
         </div>
       </div>
     </motion.article>
-  )
-}
+  );
+};
 
 /* ── Section root ─────────────────────────────────────── */
 const Work = () => {
-  const ref    = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-8%' })
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-8%" });
 
   return (
-    <section id="work" ref={ref} className="relative py-32 lg:py-40 px-6 lg:px-20 overflow-hidden">
-
+    <section
+      id="work"
+      ref={ref}
+      className="relative py-32 lg:py-40 px-6 lg:px-20 overflow-hidden"
+    >
       {/* Background glow */}
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-[#ff6200]/4 blur-[140px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
-
         {/* Section label */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -218,14 +240,21 @@ const Work = () => {
           className="flex items-center gap-4 mb-20"
         >
           <span className="text-[#ff6200] font-mono text-sm">03.</span>
-          <span className="text-gray-600 font-mono text-xs tracking-[0.25em] uppercase">Selected Work</span>
+          <span className="text-gray-600 font-mono text-xs tracking-[0.25em] uppercase">
+            Selected Work
+          </span>
           <div className="flex-1 h-px bg-gradient-to-r from-white/8 to-transparent ml-2" />
         </motion.div>
 
         {/* Project list */}
         <div className="flex flex-col gap-28 lg:gap-36">
           {projects.map((project, i) => (
-            <ProjectCard key={project.title} project={project} i={i} inView={inView} />
+            <ProjectCard
+              key={project.title}
+              project={project}
+              i={i}
+              inView={inView}
+            />
           ))}
         </div>
 
@@ -236,7 +265,9 @@ const Work = () => {
           transition={{ duration: 0.65, delay: 0.6 }}
           className="text-center mt-24"
         >
-          <p className="text-gray-600 font-mono text-xs tracking-[0.2em] mb-5 uppercase">More on GitHub</p>
+          <p className="text-gray-600 font-mono text-xs tracking-[0.2em] mb-5 uppercase">
+            More on GitHub
+          </p>
           <a
             href="https://github.com/WebDevNarayan"
             target="_blank"
@@ -250,7 +281,7 @@ const Work = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Work
+export default Work;
