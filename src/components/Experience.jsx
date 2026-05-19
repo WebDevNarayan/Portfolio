@@ -4,12 +4,12 @@ import { motion, useInView } from 'framer-motion'
 const experiences = [
   {
     year:        '2023',
-    duration:    '3 Weeks',
-    company:     'Devorak Innovation',
+    duration:    'Present',
+    company:     'Asarfi',
     role:        'Frontend Developer',
-    description: 'Owned the frontend of a full-featured QR menu system used in production restaurants. Deepened mastery of Next.js and implemented client-state architecture using Zustand.',
-    projects:    ['QR Menu System'],
-    tech:        ['Next.js', 'Zustand', 'Tailwind CSS', 'REST API'],
+    description: 'Building and shipping production web applications across multiple products. Owning the frontend architecture, delivering polished user interfaces, and collaborating with cross-functional teams to bring complex features to life.',
+    projects:    ['Video Doctor AI', 'SME Business OS'],
+    tech:        ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'Framer Motion'],
   },
   {
     year:        '2022',
