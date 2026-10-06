@@ -37,10 +37,23 @@ const IconGitHub = ({ size = 16 }) => (
 const projects = [
   {
     num: "01",
-    title: "Video Doctor AI",
-    subtitle: "AI-Powered YouTube Analyzer",
+    title: "SME Business OS",
+    subtitle: "Multi-Tenant HR & Workforce SaaS",
     description:
-      "Find out why your video isn't performing. Paste any YouTube URL and get a full performance diagnosis — CTR, retention, SEO, and actionable fixes in seconds. Covers title & thumbnail scoring, hook & pacing breakdown, tags & discoverability, and specific rewrite suggestions.",
+      "An independently designed and deployed multi-tenant HR and workforce SaaS platform covering employee management, attendance, leave, payroll, approvals and shift management. Built with Next.js, TypeScript, Node.js, Express, PostgreSQL and Prisma, with JWT authentication, role-based access control and company-scoped data isolation.",
+    tech: ["Next.js", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Tailwind CSS", "shadcn/ui"],
+    image: "./images/smebos.png",
+    imageScale: 1.35,
+    live: "https://www.smebos.co/",
+    app: "https://app.smebos.co/",
+    github: null,
+  },
+  {
+    num: "02",
+    title: "Video Doctor AI",
+    subtitle: "AI-Powered YouTube Analysis Platform",
+    description:
+      "A web application that analyzes YouTube videos using the YouTube API and AI/LLM workflows, turning video metadata and content signals into actionable recommendations for titles, thumbnails, SEO, retention and discoverability.",
     tech: ["React", "AI/LLM", "YouTube API", "Tailwind CSS"],
     image: "./images/video-doctor-ai.png",
     imageScale: 1.35,
@@ -48,24 +61,12 @@ const projects = [
     github: null,
   },
   {
-    num: "02",
-    title: "SME Business OS",
-    subtitle: "All-in-One HR & Workforce Platform",
-    description:
-      "From attendance to payroll, leave to performance — everything your team needs to manage people operations, unified in one secure platform. A full HR/workforce management system built for small and medium businesses.",
-    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "Express"],
-    image: "./images/smebos.png",
-    imageScale: 1.35,
-    live: "https://www.smebos.co/",
-    github: null,
-  },
-  {
     num: "03",
     title: "Duk@an",
-    subtitle: "Full-Stack E-Commerce Platform",
+    subtitle: "Full-Stack E-Commerce Application",
     description:
-      "A complete e-commerce web application with product catalog, cart management, and user authentication. Designed for real-world scale with a responsive, conversion-optimized interface.",
-    tech: ["React", "JavaScript", "Styled Components", "REST API"],
+      "A full-stack e-commerce application built with React and REST APIs, covering product browsing, cart management, authentication and responsive shopping flows.",
+    tech: ["React", "JavaScript", "REST API", "Styled Components"],
     image: "./images/dukaan.png",
     live: null,
     github: "https://github.com/WebDevNarayan/dukaan",
@@ -195,6 +196,19 @@ const ProjectCard = ({ project, i, inView }) => {
               <IconLink size={14} />
               <span className="group-hover:translate-x-0.5 transition-transform duration-200">
                 View Live
+              </span>
+            </a>
+          )}
+          {project.app && (
+            <a
+              href={project.app}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#ff6200] transition-all duration-300 font-mono group"
+            >
+              <IconLink size={14} />
+              <span className="group-hover:translate-x-0.5 transition-transform duration-200">
+                Open App
               </span>
             </a>
           )}

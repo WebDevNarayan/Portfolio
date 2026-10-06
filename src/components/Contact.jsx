@@ -67,7 +67,7 @@ const Contact = () => {
           transition={{ duration: 0.65, delay: 0.18 }}
           className="text-gray-500 text-[15px] leading-[1.9] mb-12 max-w-md mx-auto"
         >
-          Currently open to new opportunities — freelance, full-time, or just a great conversation. My inbox is always open.
+          Based in Pokhara, Nepal, and planning to relocate to Auckland, New Zealand in February 2027. Open to frontend and full-stack engineering roles — happy to hear from recruiters and engineering managers.
         </motion.p>
 
         {/* Availability badge */}

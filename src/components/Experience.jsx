@@ -3,25 +3,31 @@ import { motion, useInView } from "framer-motion";
 
 const experiences = [
   {
-    year: "2023",
+    year: "Feb 2024",
     duration: "Present",
-    company: "Asarfi",
-    role: "Frontend Developer",
-    description:
-      "Building fintech-grade dashboards and internal tools for financial infrastructure. Led UI development for in-house projects like Bank Settlements, PaymentsLake, and Simulator platforms. Also served as Angular developer on a foreign client engagement and contributed to Creqingo, HR/Payroll management product.",
+    company: "Asarfi Technologies Pvt. Ltd.",
+    role: "Frontend Engineer",
+    description: [
+      "Build and maintain production features across Angular, React and Next.js applications, including financial/internal platforms and Crewingo, an HR/payroll product for Arabic-speaking markets.",
+      "Turn business requirements into frontend workflows: reusable components, forms and validation, loading and error states, and REST API integration.",
+      "Implement Arabic localisation and RTL interfaces, and work through complex HR/payroll workflows.",
+      "Work closely with Java/Spring Boot developers, investigating frontend and cross-stack defects, including production issues.",
+      "Take part in code reviews and Agile delivery, and support testing and release/deployment.",
+    ],
     projects: [
       "Bank Settlements Dashboard",
       "PaymentsLake Dashboard",
       "Simulator UI",
-      "Creqingo (HR)",
+      "Crewingo (HR/Payroll)",
     ],
     tech: [
-      "React",
       "Angular",
+      "TypeScript",
+      "React",
       "Next.js",
       "Tailwind CSS",
-      "TypeScript",
-      "Node.js",
+      "REST APIs",
+      "Spring Boot",
     ],
   },
   {
@@ -30,7 +36,7 @@ const experiences = [
     company: "Nep Tech Pal Ltd.",
     role: "Frontend Developer",
     description:
-      "Collaborated in a cross-functional team (designer, frontend, backend) to deliver production-ready web applications on deadline. Took full ownership of UI components and responsive design.",
+      "Worked in a cross-functional team with designers and backend developers to deliver production web applications, including a Loksewa platform.",
     projects: ["Nep Tech Pal", "Loksewa Platform"],
     tech: ["React", "JavaScript", "Styled Components", "Figma"],
   },
@@ -40,7 +46,7 @@ const experiences = [
     company: "Rangin Technology",
     role: "Frontend Intern",
     description:
-      "My first professional engineering role. Shipped real features on a production e-commerce platform, learning JavaScript, React, and the discipline of writing code that others depend on.",
+      "Worked on a production e-commerce application, gaining early professional experience with React and JavaScript.",
     projects: ["Duk@an E-Commerce"],
     tech: ["React", "Styled Components", "JavaScript"],
   },
@@ -151,9 +157,20 @@ const Experience = () => {
                     </h3>
                   </div>
 
-                  <p className="text-gray-500 text-sm leading-[1.85] mb-5 max-w-xl">
-                    {exp.description}
-                  </p>
+                  {Array.isArray(exp.description) ? (
+                    <ul className="text-gray-500 text-sm leading-[1.85] mb-5 max-w-xl flex flex-col gap-1.5">
+                      {exp.description.map((point) => (
+                        <li key={point} className="flex gap-3">
+                          <span className="text-[#ff6200]/60 shrink-0">▹</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-500 text-sm leading-[1.85] mb-5 max-w-xl">
+                      {exp.description}
+                    </p>
+                  )}
 
                   {exp.projects.length > 0 && (
                     <div className="flex items-center gap-2 mb-5 flex-wrap">

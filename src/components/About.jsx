@@ -5,29 +5,40 @@ const skillGroups = [
   {
     category: 'Frontend',
     color: '#ff6200',
-    items: ['React', 'Next.js', 'JavaScript', 'TypeScript'],
+    items: ['React', 'Next.js', 'Angular', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS'],
   },
   {
-    category: 'Styling',
+    category: 'Backend',
     color: '#3b82f6',
-    items: ['Tailwind CSS', 'Styled Components', 'Framer Motion'],
+    items: ['Node.js', 'Express', 'Java', 'Spring Boot', 'REST APIs'],
   },
   {
-    category: '3D & Creative',
-    color: '#8b5cf6',
-    items: ['Three.js', 'GSAP', 'WebGL', 'R3F'],
-  },
-  {
-    category: 'Tools',
+    category: 'Data',
     color: '#10b981',
-    items: ['Git', 'Figma', 'Vite', 'Node.js'],
+    items: ['PostgreSQL', 'MySQL', 'Prisma'],
+  },
+  {
+    category: 'Engineering',
+    color: '#06b6d4',
+    items: ['Git', 'Docker', 'Integration Testing', 'API Integration', 'Debugging', 'Component Architecture'],
+  },
+  {
+    category: 'Product / UI',
+    color: '#f59e0b',
+    items: ['Responsive Design', 'UI/UX', 'Arabic Localisation', 'RTL Interfaces', 'Role-Based Access Control', 'Multi-Tenant SaaS'],
+  },
+  {
+    category: 'Creative',
+    color: '#8b5cf6',
+    items: ['Three.js', 'React Three Fiber', 'GSAP', 'WebGL', 'Framer Motion'],
   },
 ]
 
+/* `value` animates as a counter; `text` renders as-is */
 const stats = [
-  { value: 3,  suffix: '+', label: 'Years Building' },
-  { value: 10, suffix: '+', label: 'Projects Shipped' },
-  { value: 5,  suffix: '+', label: 'Clients Served' },
+  { value: 3, suffix: '+', label: 'Years Experience' },
+  { text: 'React + Angular', label: 'Production Experience' },
+  { text: 'Full-Stack SaaS', label: 'Built & Deployed' },
 ]
 
 /* Counter that animates up when in view */
@@ -93,33 +104,33 @@ const AboutMe = () => {
               className="text-4xl lg:text-[3.6rem] font-bold leading-[1.05] mb-8"
               style={{ fontFamily: 'Montserrat Alternates, sans-serif' }}
             >
-              Building experiences<br />
-              <span className="text-gradient">people remember.</span>
+              From requirements<br />
+              <span className="text-gradient">to working software.</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={2}
               className="text-gray-400 leading-[1.9] mb-6 max-w-[480px] text-[15px]"
             >
-              Hi, I'm Narayan — a frontend developer from Pokhara, Nepal. My journey began in 2021 as a web designer, obsessed with making interfaces that feel alive. That obsession naturally pulled me deeper into code.
+              Hi, I'm Narayan — a frontend engineer based in Pokhara, Nepal, with 3+ years of professional web development experience. Most of my work is in React, Next.js, Angular and TypeScript, on production business software backed by Java/Spring Boot and Node.js services.
             </motion.p>
 
             <motion.p
               variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={3}
               className="text-gray-500 leading-[1.9] mb-14 max-w-[480px] text-[15px]"
             >
-              Today I bridge the gap between design and engineering — crafting web applications that don't just work, but <em className="text-gray-300 not-italic">feel</em> alive. From React SPAs to immersive Three.js worlds, I push the web's full potential.
+              The part I enjoy most is turning business requirements into software people can actually use — with maintainable components, reliable API integration and sensible UX. Outside work, I designed, built and deployed <span className="text-gray-300">SME Business OS</span>, a multi-tenant HR and workforce SaaS product.
             </motion.p>
 
             {/* Stats */}
             <motion.div
               variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={4}
-              className="flex gap-10 pt-10 border-t border-white/5"
+              className="flex flex-wrap items-end gap-x-10 gap-y-8 pt-10 border-t border-white/5"
             >
-              {stats.map(({ value, suffix, label }) => (
+              {stats.map(({ value, suffix, text, label }) => (
                 <div key={label}>
-                  <div className="text-3xl lg:text-4xl font-bold text-[#ff6200] font-mono leading-none mb-1">
-                    {inView ? <Counter target={value} suffix={suffix} /> : `0${suffix}`}
+                  <div className={`${text ? 'text-xl lg:text-2xl' : 'text-3xl lg:text-4xl'} font-bold text-[#ff6200] font-mono leading-none mb-1`}>
+                    {text ?? (inView ? <Counter target={value} suffix={suffix} /> : `0${suffix}`)}
                   </div>
                   <div className="text-gray-600 text-[11px] font-mono tracking-[0.18em] uppercase mt-2">
                     {label}

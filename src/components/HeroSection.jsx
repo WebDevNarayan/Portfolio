@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import HeroScene from './HeroScene'
 
-const roles = ['Frontend Developer', 'React Specialist', 'Creative Developer', 'UI Engineer']
+const roles = ['Frontend Engineer', 'React · Next.js', 'Angular · TypeScript', 'Full-Stack SaaS']
 
 const AnimatedWord = ({ text, color, delayOffset = 0 }) => (
   <span className="inline-flex overflow-hidden">
@@ -107,7 +107,7 @@ const HeroSection = () => {
             className="text-gray-500 text-sm leading-[1.9] mb-10 max-w-[340px]"
             style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
-            Crafting immersive web experiences from Pokhara, Nepal — where React meets Three.js and design meets code.
+            Building production web applications with React, Next.js, Angular and TypeScript — with hands-on full-stack SaaS experience.
           </motion.p>
 
           {/* CTAs */}
