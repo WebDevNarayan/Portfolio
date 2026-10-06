@@ -111,7 +111,7 @@ const Experience = () => {
                   </span>
                   {/* Timeline node */}
                   <div className="relative translate-x-[7px] mt-1">
-                    <div className="w-3.5 h-3.5 rounded-full border-2 border-[#ff6200] bg-[#080808]" />
+                    <div className="w-3.5 h-3.5 rounded-full border-2 border-[#ff6200] bg-[#000000]" />
                     <div className="absolute inset-0 rounded-full bg-[#ff6200]/20 scale-[2.2] animate-ping opacity-0 group-hover:opacity-100" />
                   </div>
                   <span className="text-gray-700 font-mono text-[10px] text-right mt-1">

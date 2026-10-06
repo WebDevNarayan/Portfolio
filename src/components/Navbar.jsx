@@ -104,7 +104,7 @@ const Navbar = () => {
         transition={{ duration: 0.75, ease: [0.33, 1, 0.68, 1] }}
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#080808]/70 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_1px_0_rgba(255,255,255,0.04)]'
+            ? 'bg-[#000000]/70 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_1px_0_rgba(255,255,255,0.04)]'
             : 'bg-transparent'
         }`}
       >
@@ -169,7 +169,7 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.38, ease: [0.33, 1, 0.68, 1] }}
-            className="fixed inset-0 z-[60] bg-[#080808]/97 backdrop-blur-2xl flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[60] bg-[#000000]/97 backdrop-blur-2xl flex flex-col items-center justify-center"
           >
             <button
               className="absolute top-6 right-8 text-gray-500 hover:text-white transition-colors"

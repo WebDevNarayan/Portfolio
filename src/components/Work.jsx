@@ -118,7 +118,7 @@ const ProjectCard = ({ project, i, inView }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="absolute inset-0 bg-[#080808]/82 backdrop-blur-[2px] flex items-center justify-center gap-5 z-10"
+              className="absolute inset-0 bg-[#000000]/82 backdrop-blur-[2px] flex items-center justify-center gap-5 z-10"
             >
               {project.live && (
                 <a

@@ -33,7 +33,7 @@ const HeroSection = () => {
   }, [])
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-[#080808]">
+    <section className="relative w-full h-screen overflow-hidden bg-[#000000]">
 
       {/* Three.js canvas — full bleed */}
       <div className="absolute inset-0 z-0">
@@ -41,9 +41,9 @@ const HeroSection = () => {
       </div>
 
       {/* Gradient masks */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#080808] via-[#080808]/88 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#080808] via-transparent to-transparent pointer-events-none" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#080808]/30 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#000000] via-[#000000]/88 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#000000] via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#000000]/30 via-transparent to-transparent pointer-events-none" />
 
       {/* Main content */}
       <div className="relative z-[2] h-full flex items-center pointer-events-none">

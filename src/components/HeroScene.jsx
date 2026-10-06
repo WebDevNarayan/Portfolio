@@ -272,7 +272,7 @@ const HeroScene = () => (
     dpr={[1, 1.5]}
     shadows
   >
-    <color attach="background" args={['#080808']} />
+    <color attach="background" args={['#000000']} />
 
     <ambientLight intensity={0.14} />
     <pointLight position={[-3.5, 4, 2]} intensity={7} color="#ff6200" />

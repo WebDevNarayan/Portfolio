@@ -10,7 +10,7 @@ import CustomCursor from "./components/CustomCursor";
 
 function App() {
   return (
-    <div className="page-bg bg-[#080808] text-white font-sans overflow-x-hidden cursor-none">
+    <div className="page-bg bg-[#000000] text-white font-sans overflow-x-hidden cursor-none">
       <CustomCursor />
       <Navbar />
       <HeroSection />
